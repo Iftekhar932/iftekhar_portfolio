@@ -22,18 +22,23 @@ section.introduction {
   /* max-width: 1280px; */
   padding: 1.5rem;
   margin: auto;
-  background-size: 400% 400%;
   color: white;
   font-weight: bolder;
   background: linear-gradient(
     45deg,
     var(--brightest-bg-color),
-    var(--brighter-bg-color)
+    var(--brighter-bg-color),
+    yellow
   );
+  background-size: 400% 400%;
   animation-name: colorSwap;
-  animation-duration: 3s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 }
+section.introduction article {
+  max-width: 500px;
+}
+
 section.introduction article span {
   display: inline-block;
   animation: typing 10s steps(10) infinite,
@@ -42,7 +47,6 @@ section.introduction article span {
   overflow: hidden;
   white-space: nowrap;
   letter-spacing: 0.2rem;
-  max-width: 160px;
 }
 section.introduction div.introImgBox {
   padding: 0.5rem;
@@ -68,7 +72,7 @@ div.introImgBox img {
     width: 0%;
   }
   50% {
-    width: 160px;
+    width: 200px;
   }
   100% {
     width: 0%;
@@ -92,44 +96,82 @@ div.introImgBox img {
 /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS  🟪🟪🟪🟪🟪🟪🟪 */
 section.boxContainer {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 350px));
+  grid-template-columns: repeat(1, minmax(200px, 350px));
   place-items: center;
   place-content: center;
   gap: 1rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 section.boxContainer h1.skillHeader {
+  border-bottom: 1px solid;
   grid-column: 1/-1;
 }
 section.boxContainer .singleBox {
   padding: 1rem;
   border-radius: 5%;
-  background: var(--brightest-bg-color);
+  background: rgba(255, 255, 255, 0.5);
   text-align: center;
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
+section.boxContainer .singleBox:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
 section.boxContainer .singleBox::after {
+  /* filter: blur(0.1rem); */
+  background: var(--brightest-bg-color);
   content: " "; /* unicode "ALT + 255"  */
-  background: var(--brighter-bg-color);
-  /* background: hsla(0, 0%, 10%, 0.5); */
   position: absolute;
   top: 0%;
   left: 50%;
-  transform: scale(0);
+  transform: scale(0.1);
   border-radius: 50%;
   z-index: -1;
 }
 section.boxContainer .singleBox:hover:after {
   transform: scale(55);
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
 }
 
 section.boxContainer .singleBox img {
-  max-height: 250px;
-  max-width: 100%;
+  max-height: 100px;
+  /* max-width: 100%; */
 }
 
 /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS END 🟪🟪🟪🟪🟪🟪🟪 */
+
+/******************** MEDIUM DEVICES *************************/
+@media only screen and (min-width: 768px) {
+  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION  🟪🟪🟪🟪🟪🟪🟪 */
+  section.introduction {
+    font-size: 1.2rem;
+  }
+  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION END 🟪🟪🟪🟪🟪🟪🟪 */
+
+  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS  🟪🟪🟪🟪🟪🟪🟪 */
+  section.boxContainer {
+    grid-template-columns: repeat(2, minmax(200px, 350px));
+  }
+  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS END 🟪🟪🟪🟪🟪🟪🟪 */
+}
+/******************** MEDIUM DEVICES END *************************/
+
+/******************** LARGE DEVICES  *************************/
+@media only screen and (min-width: 1200px) {
+  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION  🟪🟪🟪🟪🟪🟪🟪 */
+  section.introduction {
+    font-size: 1.5rem;
+  }
+  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION END 🟪🟪🟪🟪🟪🟪🟪 */
+
+  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS  🟪🟪🟪🟪🟪🟪🟪 */
+  section.boxContainer {
+    grid-template-columns: repeat(3, minmax(200px, 350px));
+  }
+
+  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS END 🟪🟪🟪🟪🟪🟪🟪 */
+}
+/******************** LARGE DEVICES END *************************/
