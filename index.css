@@ -13,7 +13,7 @@ body {
   font-size: 18px;
 }
 
-/* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION 🟪🟪🟪🟪🟪🟪🟪 */
+/* ⬇️⬇️⬇️ INTRODUCTION ⬇️⬇️⬇️ */
 section.introduction {
   display: flex;
   place-items: center;
@@ -41,12 +41,13 @@ section.introduction article {
 
 section.introduction article span {
   display: inline-block;
-  animation: typing 10s steps(10) infinite,
+  animation: typing 2s steps(10) infinite,
     blink 0.4s step-end infinite alternate;
   border-right: 5px solid white;
   overflow: hidden;
   white-space: nowrap;
   letter-spacing: 0.2rem;
+  max-width: 300px;
 }
 section.introduction div.introImgBox {
   padding: 0.5rem;
@@ -72,7 +73,7 @@ div.introImgBox img {
     width: 0%;
   }
   50% {
-    width: 200px;
+    width: 100%;
   }
   100% {
     width: 0%;
@@ -91,29 +92,33 @@ div.introImgBox img {
   }
 }
 
-/* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION END 🟪🟪🟪🟪🟪🟪🟪 */
+/* ⬇️⬇️⬇️ INTRODUCTION END ⬇️⬇️⬇️ */
 
-/* 🟪🟪🟪🟪🟪🟪🟪 SKILLS  🟪🟪🟪🟪🟪🟪🟪 */
+/* ⬇️⬇️⬇️ SKILLS  ⬇️⬇️⬇️ */
 section.boxContainer {
   display: grid;
   grid-template-columns: repeat(1, minmax(200px, 350px));
   place-items: center;
   place-content: center;
   gap: 1rem;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 section.boxContainer h1.skillHeader {
   border-bottom: 1px solid;
   grid-column: 1/-1;
 }
 section.boxContainer .singleBox {
-  padding: 1rem;
-  border-radius: 5%;
-  background: rgba(255, 255, 255, 0.5);
   text-align: center;
   position: relative;
-  z-index: 1;
   overflow: hidden;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5%;
+  z-index: 1;
+  max-height: 250px;
+  height: 250px;
+  max-width: 200px;
+  width: 100%;
 }
 
 section.boxContainer .singleBox:hover {
@@ -141,37 +146,42 @@ section.boxContainer .singleBox img {
   /* max-width: 100%; */
 }
 
-/* 🟪🟪🟪🟪🟪🟪🟪 SKILLS END 🟪🟪🟪🟪🟪🟪🟪 */
+/* ⬇️⬇️⬇️ SKILLS END ⬇️⬇️⬇️ */
 
-/******************** MEDIUM DEVICES *************************/
+/******************** 🟣 MEDIUM DEVICES 🟣 *************************/
 @media only screen and (min-width: 768px) {
-  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION  🟪🟪🟪🟪🟪🟪🟪 */
+  /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
   section.introduction {
     font-size: 1.2rem;
   }
-  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION END 🟪🟪🟪🟪🟪🟪🟪 */
+  /* ⬇️⬇️⬇️ INTRODUCTION END ⬇️⬇️⬇️ */
 
-  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS  🟪🟪🟪🟪🟪🟪🟪 */
+  /* ⬇️⬇️⬇️ SKILLS  ⬇️⬇️⬇️ */
   section.boxContainer {
     grid-template-columns: repeat(2, minmax(200px, 350px));
   }
-  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS END 🟪🟪🟪🟪🟪🟪🟪 */
+  /* ⬇️⬇️⬇️ SKILLS END ⬇️⬇️⬇️ */
 }
-/******************** MEDIUM DEVICES END *************************/
 
-/******************** LARGE DEVICES  *************************/
+/******************** 🟣 LARGE DEVICES 🟣  *********************
+*
+*
+*
+*/
 @media only screen and (min-width: 1200px) {
-  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION  🟪🟪🟪🟪🟪🟪🟪 */
+  /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
   section.introduction {
     font-size: 1.5rem;
   }
-  /* 🟪🟪🟪🟪🟪🟪🟪 INTRODUCTION END 🟪🟪🟪🟪🟪🟪🟪 */
 
-  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS  🟪🟪🟪🟪🟪🟪🟪 */
+  /* ⬇️⬇️⬇️ SKILLS  ⬇️⬇️⬇️ */
   section.boxContainer {
     grid-template-columns: repeat(3, minmax(200px, 350px));
   }
-
-  /* 🟪🟪🟪🟪🟪🟪🟪 SKILLS END 🟪🟪🟪🟪🟪🟪🟪 */
 }
-/******************** LARGE DEVICES END *************************/
+/******************** 🟣 LARGE DEVICES 🟣 END *************************
+**
+**
+**
+**
+**/
