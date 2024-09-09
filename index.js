@@ -1,11 +1,18 @@
 const navCrossButton = document.getElementById("cross-button");
+const navbar = document.getElementById("navbar");
 
 navCrossButton.addEventListener("click", (e) => {
   // e.target.innerHTML = `<span id="cross-button" class="cross-button">&#9776;</span>`; // need to remove previous one
 
+  // change icon
   e.target.textContent == "☰"
     ? (e.target.textContent = "X")
     : (e.target.textContent = "☰");
+
+  // change style
+  e.target.textContent == "☰"
+    ? navbar.classList.remove("displayNav")
+    : navbar.classList.add("displayNav");
 });
 
 /* window.addEventListener("scroll", function () {

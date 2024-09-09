@@ -18,13 +18,16 @@ html {
 .navbar {
   position: fixed;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   /* flex-wrap: wrap; */
   /* place-items: center; */
   z-index: 10;
   width: 100%;
   background-size: 400% 400%;
-  background: rgba(255, 255, 255, 0.5);
+  /* background: rgba(255, 255, 255, 0.5); */
+  background: transparent;
+  transform: translate(90%, -75%);
+  transition-duration: 0.5s;
 }
 .navbar span:not(:first-child) {
   display: block;
@@ -34,14 +37,22 @@ html {
 }
 .navbar span:first-child {
   place-self: start;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  position: fixed;
+  /* left: 0.5rem; */
+  /* bottom: 0.5rem;
+  left: 1rem; */
+  padding: 0.5rem;
+  /* z-index: 10; */
 }
 .navbar span:hover {
-  background: rgba(255, 255, 255, 0.6);
+  /* background: rgba(255, 255, 255, 0.6); */
+  outline: 1px groove;
 }
-
+.displayNav {
+  border-bottom-left-radius: 0%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(0px);
+}
 /* ⬇️⬇️⬇️ INTRODUCTION ⬇️⬇️⬇️ */
 section.introduction {
   display: flex;
