@@ -15,43 +15,44 @@ html {
 }
 
 /* ⬇️⬇️⬇️ NAVBAR ⬇️⬇️⬇️ */
-.navbar {
+.cross-button {
+  color: var(--dark-bg-color);
+  font-weight: bolder;
+  background: rgba(255, 255, 255, 0.7);
   position: fixed;
+  border-radius: 20%;
+  top: 0;
+  right: 0%;
+  padding: 0.5rem;
+  z-index: 3;
+  height: 2.5rem;
+  width: 2rem;
+}
+
+.navbar {
   display: flex;
   flex-direction: column-reverse;
-  /* flex-wrap: wrap; */
-  /* place-items: center; */
-  z-index: 10;
-  width: 100%;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.7);
   background-size: 400% 400%;
-  /* background: rgba(255, 255, 255, 0.5); */
-  background: transparent;
-  transform: translate(90%, -75%);
+  width: 100%;
+  border-radius: 100%;
+  transform: translate(300%, -100%);
   transition-duration: 0.5s;
+  z-index: 2;
 }
-.navbar span:not(:first-child) {
-  display: block;
+.navbar span {
   text-align: center;
   padding: 1rem;
   width: 100%;
 }
-.navbar span:first-child {
-  place-self: start;
-  position: fixed;
-  /* left: 0.5rem; */
-  /* bottom: 0.5rem;
-  left: 1rem; */
-  padding: 0.5rem;
-  /* z-index: 10; */
-}
 .navbar span:hover {
-  /* background: rgba(255, 255, 255, 0.6); */
   outline: 1px groove;
 }
 .displayNav {
-  border-bottom-left-radius: 0%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: translate(0px);
+  width: 100%;
+  transform: translate(0%, 0%);
+  border-radius: 0%;
 }
 /* ⬇️⬇️⬇️ INTRODUCTION ⬇️⬇️⬇️ */
 section.introduction {
@@ -229,6 +230,25 @@ section.boxContainer .singleBox img {
 *
 */
 @media only screen and (min-width: 1200px) {
+  /* ⬇️⬇️⬇️ NAVBAR  ⬇️⬇️⬇️ */
+  .cross-button {
+    display: none;
+  }
+  .navbar {
+    flex-direction: row;
+    transform: translate(0%);
+    border-radius: 0%;
+    background: linear-gradient(
+      45deg,
+      var(--brighter-bg-color), var(--brightest-bg-color),
+      var(--brighter-bg-color)
+    );
+    background-size: 400% 400%;
+    animation-name: colorSwap;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+  }
+
   /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
   section.introduction {
     font-size: 1.5rem;
