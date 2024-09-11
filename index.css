@@ -16,17 +16,18 @@ html {
 
 /* ⬇️⬇️⬇️ NAVBAR ⬇️⬇️⬇️ */
 .cross-button {
+  cursor: pointer;
   color: var(--dark-bg-color);
   font-weight: bolder;
   background: rgba(255, 255, 255, 0.7);
-  position: fixed;
   border-radius: 20%;
-  top: 0;
-  right: 0%;
   padding: 0.5rem;
-  z-index: 3;
   height: 2.5rem;
   width: 2rem;
+  position: fixed;
+  top: 0;
+  right: 0%;
+  z-index: 3;
 }
 
 .navbar {
@@ -35,9 +36,10 @@ html {
   position: fixed;
   background: rgba(255, 255, 255, 0.7);
   background-size: 400% 400%;
-  width: 100%;
+  width: 0%;
   border-radius: 100%;
-  transform: translate(300%, -100%);
+  transform: translate(300%, -100%) scale(0);
+  /* transform: translate(300%, 100%) scale(0); */
   transition-duration: 0.5s;
   z-index: 2;
 }
@@ -51,8 +53,11 @@ html {
 }
 .displayNav {
   width: 100%;
-  transform: translate(0%, 0%);
+  transform: translate(0%, 0%) scale(1);
   border-radius: 0%;
+}
+.navScrollEffect{
+  background: transparent ;
 }
 /* ⬇️⬇️⬇️ INTRODUCTION ⬇️⬇️⬇️ */
 section.introduction {
@@ -238,9 +243,12 @@ section.boxContainer .singleBox img {
     flex-direction: row;
     transform: translate(0%);
     border-radius: 0%;
+    width: 100%;
+
     background: linear-gradient(
       45deg,
-      var(--brighter-bg-color), var(--brightest-bg-color),
+      var(--brighter-bg-color),
+      var(--brightest-bg-color),
       var(--brighter-bg-color)
     );
     background-size: 400% 400%;

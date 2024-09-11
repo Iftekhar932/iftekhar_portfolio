@@ -1,5 +1,6 @@
 const navCrossButton = document.getElementById("cross-button");
 const navbar = document.getElementById("navbar");
+const skillsSection = document.querySelector("#skills");
 
 navCrossButton.addEventListener("click", (e) => {
   // e.target.innerHTML = `<span id="cross-button" class="cross-button">&#9776;</span>`; // need to remove previous one
@@ -15,15 +16,27 @@ navCrossButton.addEventListener("click", (e) => {
     : navbar.classList.add("displayNav");
 });
 
+const elementObserver = new IntersectionObserver(
+  (elements) => {
+    elements.forEach((element) => {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY <= element.boundingClientRect.height) {
+          navbar.classList.add("navScrollEffect");
+        }
+      });
+    });
+  },
+  { threshold: 1 }
+);
+elementObserver.observe(navbar);
+
 /* window.addEventListener("scroll", function () {
   console.log(document.documentElement.scrollHeight - window.innerHeight); // whole document's height - device window height
   console.log(window.scrollY); // scrolled pixel
 });
  */
-
 const elementToDoStuff = document.querySelector("random-element");
-
-/* When al element is  visible(partially or fully based on "threshold" setting below) in the screen is intersected by Observer */
+// When an element is visible(partially or fully based on "threshold" setting below) in the screen, it  is intersected by Observer
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -42,6 +55,8 @@ const observer = new IntersectionObserver(
   }
 );
 
-elementToDoStuff.forEach((element) => {
-  observer.observe(element[0]); //  using observe method to observe the element
+document.querySelectorAll(".navbar span").forEach((element) => {
+  // console.log(element);
+
+  observer.observe(element); //  using observe method to observe the element
 });
