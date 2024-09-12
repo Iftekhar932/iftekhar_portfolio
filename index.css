@@ -13,7 +13,6 @@ html {
   font-family: monospace, sans-serif, helvetica;
   font-size: 18px;
 }
-
 /* ⬇️⬇️⬇️ NAVBAR ⬇️⬇️⬇️ */
 .cross-button {
   cursor: pointer;
@@ -38,8 +37,8 @@ html {
   background-size: 400% 400%;
   width: 0%;
   border-radius: 100%;
-  transform: translate(300%, -100%) scale(0);
-  /* transform: translate(300%, 100%) scale(0); */
+  /* transform: translate(200%, -300%) scale(0); */
+  transform: translate(300%, 100%) scale(0);
   transition-duration: 0.5s;
   z-index: 2;
 }
@@ -56,9 +55,7 @@ html {
   transform: translate(0%, 0%) scale(1);
   border-radius: 0%;
 }
-.navScrollEffect{
-  background: transparent ;
-}
+
 /* ⬇️⬇️⬇️ INTRODUCTION ⬇️⬇️⬇️ */
 section.introduction {
   display: flex;
@@ -87,14 +84,14 @@ section.introduction article {
 
 section.introduction article span {
   display: inline-block;
-  animation: typing 2s steps(10) infinite,
+  animation: typing 2s steps(12) infinite,
     blink 0.4s step-end infinite alternate;
   border-right: 5px solid white;
+  letter-spacing: 0.2rem;
   overflow: hidden;
   white-space: nowrap;
-  letter-spacing: 0.2rem;
-  /* max-width: 300px; */
-  max-width: clamp(100px, 15rem, 300px);
+  /* max-width: clamp(100px, 16.5rem, 300px); */
+  max-width: clamp(100px, 100%, 250px);
 }
 section.introduction div.introImgBox {
   padding: 0.5rem;
@@ -177,7 +174,7 @@ section.boxContainer .singleBox {
   position: relative;
   overflow: hidden;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: ⌠rgba(255, 255, 255, 0.5);
   border-radius: 5%;
   z-index: 1;
   max-height: 250px;
@@ -209,10 +206,22 @@ section.boxContainer .singleBox:hover:after {
 section.boxContainer .singleBox img {
   max-height: 100px;
   /* max-width: 100%; */
+  background: li;
 }
 
 /* ⬇️⬇️⬇️ SKILLS END ⬇️⬇️⬇️ */
 
+/* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
+.colorfulLines {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  padding: 1rem;
+  transition-duration: 1s;
+}
+/* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
+
+/******************** 🟣⬆️ SMALL DEVICES ⬆️ 🟣 *************************/
 /******************** 🟣 MEDIUM DEVICES 🟣 *************************/
 @media only screen and (min-width: 768px) {
   /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
@@ -256,13 +265,18 @@ section.boxContainer .singleBox img {
     animation-duration: 6s;
     animation-iteration-count: infinite;
   }
-
+  .navScrollEffect {
+    background: transparent;
+  }
   /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
   section.introduction {
     font-size: 1.5rem;
     flex-direction: initial;
   }
 
+  section.introduction article span {
+    max-width: clamp(100px, 16.5rem, 300px);
+  }
   /* ⬇️⬇️⬇️ SKILLS  ⬇️⬇️⬇️ */
   section.boxContainer {
     grid-template-columns: repeat(3, minmax(200px, 350px));

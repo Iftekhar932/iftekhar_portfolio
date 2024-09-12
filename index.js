@@ -1,7 +1,10 @@
-const navCrossButton = document.getElementById("cross-button");
 const navbar = document.getElementById("navbar");
-const skillsSection = document.querySelector("#skills");
 
+const skillsSection = document.getElementById("skills");
+const projectSection = document.getElementById("projects");
+
+// smaller screen navbar toggle button logic
+const navCrossButton = document.getElementById("cross-button");
 navCrossButton.addEventListener("click", (e) => {
   // e.target.innerHTML = `<span id="cross-button" class="cross-button">&#9776;</span>`; // need to remove previous one
 
@@ -16,47 +19,70 @@ navCrossButton.addEventListener("click", (e) => {
     : navbar.classList.add("displayNav");
 });
 
-const elementObserver = new IntersectionObserver(
+// navBar background color change with scroll
+const navBarObserver = new IntersectionObserver(
   (elements) => {
     elements.forEach((element) => {
+      // when navbar is on top of the whole page it'll have transparent background
+      if (window.scrollY == 0) {
+        navbar.classList.add("navScrollEffect");
+      }
       window.addEventListener("scroll", () => {
-        if (window.scrollY <= element.boundingClientRect.height) {
+        if (window.scrollY == 0) {
           navbar.classList.add("navScrollEffect");
+        } else {
+          navbar.classList.remove("navScrollEffect");
         }
       });
+      /*  window.addEventListener("scroll", () => {
+        console.log(window.scrollY - element.boundingClientRect.height);
+        if (window.scrollY <= element.boundingClientRect.height) {
+          navbar.classList.add("navScrollEffect");
+        } else {
+          navbar.classList.remove("navScrollEffect");
+        }
+      }); */
     });
   },
   { threshold: 1 }
 );
-elementObserver.observe(navbar);
+navBarObserver.observe(navbar);
 
-/* window.addEventListener("scroll", function () {
-  console.log(document.documentElement.scrollHeight - window.innerHeight); // whole document's height - device window height
-  console.log(window.scrollY); // scrolled pixel
-});
- */
-const elementToDoStuff = document.querySelector("random-element");
-// When an element is visible(partially or fully based on "threshold" setting below) in the screen, it  is intersected by Observer
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      entry.target.classList.toggle("className", entry.isIntersecting); // "entry.isIntersecting" can be true or false, depending on in value that specified class will be added
-      if (entry.isIntersecting) observer.unobserve(entry.target); // this line is to make sure only ones an element is observed, which intersected only ones.(If needed)
-    });
-  },
-  {
-    threshold: 1, // "1" means the whole element(100%) has to be visible, 0  means the least amount of the element, 0.5 means 50%. NOTE: default is 0
-    //rootMargin: "-100px",
-    /*
-    About "rootMargin"  ⬇️
-  the code above  making the whole container -100px smaller, it's like having the window shortened,
-     events regarding window size will be triggered -100px earlier, 
-     if the "-" is off it'll enlarge the window,(example use case: pre-loading images before scrolling to the point where it should be visible) */
-  }
-);
+const randomColors = [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "orange",
+  "cyan",
+  "lightblue",
+  "pink",
+  "yellow",
+  "skyBlue",
+  "green",
+  "lightGreen",
+  "lightCyan",
+  "paleturquoise",
+  "lightGreen",
+  "lime",
+  "limeGreen",
+  "powderBlue",
+  "magenta",
+  "mintCream",
+];
 
-document.querySelectorAll(".navbar span").forEach((element) => {
-  // console.log(element);
+/*  projects section background animation*/
+// sorting the array elements in random order
+randomColors.sort(() => Math.random() - 0.5);
 
-  observer.observe(element); //  using observe method to observe the element
-});
+for (let i = 0; i <= randomColors.length; i++) {
+  const span = document.createElement("div");
+  span.classList.add("colorfulLines");
+  span.style.background = `${randomColors[i]}`;
+  span.style.boxShadow = `0px 0px 80px 44px ${randomColors[i]}`;
+  const r = Math.floor(Math.random() * 1233);
+  console.log(r);
+  span.style.transform = `translate(${r}%, ${r}% )`;
+
+  document.body.appendChild(span);
+}
