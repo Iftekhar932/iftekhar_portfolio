@@ -108,11 +108,11 @@ div.introImgBox::after {
   position: absolute;
   border-radius: 50%;
   z-index: -1;
-  transform: scale(0.1);
+  transform: scale(0);
+  transition-duration: 1s;
 }
 div.introImgBox:hover:after {
   transform: scale(55);
-  transition-duration: 1s;
 }
 div.introImgBox img {
   max-width: 100%;
@@ -181,11 +181,11 @@ section.boxContainer .singleBox {
   height: 250px;
   max-width: 200px;
   width: 100%;
+  transition-duration: 0.5s;
 }
 
 section.boxContainer .singleBox:hover {
   transform: scale(1.1);
-  transition-duration: 0.5s;
 }
 section.boxContainer .singleBox::after {
   /* filter: blur(0.1rem); */
@@ -197,10 +197,10 @@ section.boxContainer .singleBox::after {
   transform: scale(0.1);
   border-radius: 50%;
   z-index: -1;
+  transition-duration: 0.5s;
 }
 section.boxContainer .singleBox:hover:after {
   transform: scale(55);
-  transition-duration: 0.5s;
 }
 
 section.boxContainer .singleBox img {
@@ -214,12 +214,12 @@ section.boxContainer .singleBox img {
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
 .colorFulLines {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   /* position: fixed ;
   top: 0%;
   left:150%; */
-  height: 1px;
-  width: 1px;
+  height: .1px;
+  width: .1px;
   padding: 1rem;
   transition-duration: 1s;
   z-index: -1;
@@ -227,12 +227,12 @@ section.boxContainer .singleBox img {
 }
 .colorRight {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   /* position: fixed ;
   top: 0%;
   left:-50%; */
-  height: 1px;
-  width: 1px;
+  height: .1px;
+  width: .1px;
   padding: 1rem;
   transition-duration: 1s;
   z-index: -1;
