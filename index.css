@@ -223,24 +223,7 @@ section.boxContainer .singleBox img {
   padding: 1rem;
   transition-duration: 1s;
   z-index: -1;
-  border-radius: 100%;
-}
-.colorRight {
-  display: inline-block;
-  position: fixed;
-  /* position: fixed ;
-  top: 0%;
-  left:-50%; */
-  height: .1px;
-  width: .1px;
-  padding: 1rem;
-  transition-duration: 1s;
-  z-index: -1;
-  border-radius: 100%;
-}
-.colorfulLines:hover {
-  /* box-shadow: 0 0 40px 30px; */
-  filter: blur(2rem);
+  border-radius: 100%;opacity: .2;
 }
 
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */

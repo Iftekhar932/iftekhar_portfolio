@@ -3,6 +3,16 @@ const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
 const introductionSection = document.getElementById("introduction");
 
+
+// ! NOT DONE WITH THIS eventListener
+const navButtons = navbar.childNodes;
+for (const singleButton of navButtons) {
+  singleButton.addEventListener("click", (e) => {
+    console.log(e.target.getBoundingClientRect().y , document.documentElement.scrollHeight)
+    scroll(0,document.documentElement.scrollHeight - e.target.getBoundingClientRect().y);
+  });
+}
+
 // smaller screen navbar toggle button logic
 const navCrossButton = document.getElementById("cross-button");
 navCrossButton.addEventListener("click", (e) => {
@@ -42,7 +52,6 @@ const navBarObserver = new IntersectionObserver(
   { threshold: 1 }
 );
 navBarObserver.observe(navbar);
-
 
 /******  projects section background animation ******/
 // colors name array
@@ -85,8 +94,7 @@ for (let i = 0; i <= randomColors.length; i++) {
   span.style.boxShadow = `0px 0px 10px 1px ${randomColors[i]}`;
 
   span.id = "colorSpans";
-  span.classList.toggle("colorFulLines", i % 2 == 1);
-  span.classList.toggle("colorRight", i % 2 == 0);
+  span.classList.add("colorFulLines");
 
   // Add a random initial position
   span.style.top = `${Math.floor(Math.random() * window.innerHeight)}px`;
@@ -101,19 +109,17 @@ for (let i = 0; i <= randomColors.length; i++) {
   }, 1200);
 }
 
-
 // colorful span tags positioning along with scroll
 const colorSpans = [...document.querySelectorAll("#colorSpans")];
+// making sure array is not empty
 if (colorSpans[0]) {
   window.addEventListener("scroll", () => {
-    console.log(
-      document.body.scrollWidth,
-      colorSpans[0].getBoundingClientRect().y
-    );
-
     // if span tags scrollY position is greater than the window scrollX position or scrollY position then change the tag's position
     for (const singleSpan of colorSpans) {
-      if (singleSpan.getBoundingClientRect().y > window.scrollX || window.scrollY) {
+      if (
+        singleSpan.getBoundingClientRect().y > window.scrollX ||
+        window.scrollY
+      ) {
         singleSpan.style.top = `${Math.max(
           300,
           Math.floor(Math.random() * window.innerHeight)
