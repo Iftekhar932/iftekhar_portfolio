@@ -1,7 +1,7 @@
 const navbar = document.getElementById("navbar");
-
 const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
+const introductionSection = document.getElementById("introduction");
 
 // smaller screen navbar toggle button logic
 const navCrossButton = document.getElementById("cross-button");
@@ -28,25 +28,23 @@ const navBarObserver = new IntersectionObserver(
         navbar.classList.add("navScrollEffect");
       }
       window.addEventListener("scroll", () => {
-        if (window.scrollY == 0) {
+        if (
+          window.scrollY - element.boundingClientRect.height <
+          element.boundingClientRect.height
+        ) {
           navbar.classList.add("navScrollEffect");
         } else {
           navbar.classList.remove("navScrollEffect");
         }
       });
-      /*  window.addEventListener("scroll", () => {
-        console.log(window.scrollY - element.boundingClientRect.height);
-        if (window.scrollY <= element.boundingClientRect.height) {
-          navbar.classList.add("navScrollEffect");
-        } else {
-          navbar.classList.remove("navScrollEffect");
-        }
-      }); */
     });
   },
   { threshold: 1 }
 );
 navBarObserver.observe(navbar);
+
+/*  projects section background animation*/
+// sorting the array elements in random order
 
 const randomColors = [
   "red",
@@ -70,19 +68,29 @@ const randomColors = [
   "magenta",
   "mintCream",
 ];
-
-/*  projects section background animation*/
-// sorting the array elements in random order
 randomColors.sort(() => Math.random() - 0.5);
 
 for (let i = 0; i <= randomColors.length; i++) {
-  const span = document.createElement("div");
-  span.classList.add("colorfulLines");
+  const span = document.createElement("span");
+  span.id = "colorSpans";
+  span.classList.toggle("colorFulLines", i % 2 == 1);
+  span.classList.toggle("colorRight", i % 2 == 0);
   span.style.background = `${randomColors[i]}`;
   span.style.boxShadow = `0px 0px 80px 44px ${randomColors[i]}`;
-  const r = Math.floor(Math.random() * 1233);
-  console.log(r);
-  span.style.transform = `translate(${r}%, ${r}% )`;
+  // Add a random initial position
+  span.style.top = `${Math.floor(Math.random() * window.innerHeight)}px`;
+  span.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`;
+  document.body.append(span);
 
-  document.body.appendChild(span);
+  setInterval(() => {
+    span.style.top = `${Math.floor(Math.random() * window.innerHeight)}px`;
+    span.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`;
+  }, 2000);
+
+  const colorSpans = document.querySelectorAll("#colorSpans");
+
+  window.addEventListener("scroll", () => {
+    for (const singleSpan of colorSpans) {
+    }
+  });
 }

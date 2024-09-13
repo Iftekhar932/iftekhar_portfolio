@@ -212,13 +212,37 @@ section.boxContainer .singleBox img {
 /* ⬇️⬇️⬇️ SKILLS END ⬇️⬇️⬇️ */
 
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
-.colorfulLines {
+.colorFulLines {
   display: inline-block;
-  height: 10px;
-  width: 10px;
+  position: absolute;
+  /* position: fixed ;
+  top: 0%;
+  left:150%; */
+  height: 1px;
+  width: 1px;
   padding: 1rem;
   transition-duration: 1s;
+  z-index: -1;
+  border-radius: 100%;
 }
+.colorRight {
+  display: inline-block;
+  position: absolute;
+  /* position: fixed ;
+  top: 0%;
+  left:-50%; */
+  height: 1px;
+  width: 1px;
+  padding: 1rem;
+  transition-duration: 1s;
+  z-index: -1;
+  border-radius: 100%;
+}
+.colorfulLines:hover {
+  /* box-shadow: 0 0 40px 30px; */
+  filter: blur(2rem);
+}
+
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
 
 /******************** 🟣⬆️ SMALL DEVICES ⬆️ 🟣 *************************/
