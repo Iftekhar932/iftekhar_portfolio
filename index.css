@@ -12,6 +12,7 @@
 html {
   font-family: monospace, sans-serif, helvetica;
   font-size: 18px;
+  scroll-behavior: smooth;
 }
 
 /* "colorFulLines" is the style for span tags that are appended in the body element with js */
@@ -237,16 +238,14 @@ section.boxContainer .singleBox img {
   overflow-x: scroll;
   width: 100%;
   gap: 1rem;
-  padding: 0rem 2rem 2rem 2rem;
-
+padding: 0rem 0 2rem 0;
 }
 section.projectsContainer .skillHeader {
   text-align: center;
   margin: auto;
   margin-bottom: 3rem;
   border-bottom: 1px solid;
-  width: 50%;
-
+max-width: clamp(100px, 180px, 250px);
 }
 section.projectsContainer .singleProjectBox img{
   height:250px;

@@ -3,13 +3,16 @@ const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
 const introductionSection = document.getElementById("introduction");
 
-
 // ! NOT DONE WITH THIS eventListener
 const navButtons = navbar.childNodes;
 for (const singleButton of navButtons) {
   singleButton.addEventListener("click", (e) => {
-    console.log(e.target.getBoundingClientRect().y - document.documentElement.scrollHeight,e.target.getBoundingClientRect().y - window.innerHeight);
-    scroll(0,e.target.getBoundingClientRect().y - document.documentElement.scrollHeight);
+    console.log(e.target.textContent.toLowerCase());
+    const sectionElement = document.getElementById(
+      e.target.textContent.toLowerCase()
+    );
+    console.log(sectionElement.getBoundingClientRect().y - window.innerHeight)
+    scroll(0, (sectionElement.getBoundingClientRect().y - window.innerHeight) + 300);
   });
 }
 
