@@ -226,37 +226,42 @@ section.boxContainer .singleBox:hover:after {
 section.boxContainer .singleBox img {
   max-height: 100px;
   /* max-width: 100%; */
-  
 }
 
 /* ⬇️⬇️⬇️ SKILLS END ⬇️⬇️⬇️ */
 
 /* ⬇️⬇️⬇️ PROJECTS ⬇️⬇️⬇️ */
+section.projectsContainer {
+  padding: 5rem;
+}
 .projects {
   display: flex;
   place-items: center;
   overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   gap: 1rem;
-padding: 0rem 0 2rem 0;
+  padding: 0rem 0 2rem 0;
+  scroll-snap-type: x mandatory;
 }
 section.projectsContainer .skillHeader {
   text-align: center;
   margin: auto;
   margin-bottom: 3rem;
   border-bottom: 1px solid;
-max-width: clamp(100px, 180px, 250px);
+  max-width: clamp(100px, 180px, 250px);
 }
-section.projectsContainer .singleProjectBox img{
-  height:250px;
+section.projectsContainer .singleProjectBox img {
+  height: 250px;
 }
 section.projectsContainer .singleProjectBox {
   text-align: center;
   place-content: center;
   place-items: center;
   place-self: center;
-  margin:auto;
-  cursor:pointer;
+  margin: auto;
+  cursor: pointer;
+  scroll-snap-align: end;
 }
 
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
