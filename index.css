@@ -13,6 +13,20 @@ html {
   font-family: monospace, sans-serif, helvetica;
   font-size: 18px;
 }
+
+/* "colorFulLines" is the style for span tags that are appended in the body element with js */
+.colorFulLines {
+  display: inline-block;
+  position: fixed;
+  height: 0.1px;
+  width: 0.1px;
+  padding: 1rem;
+  transition-duration: 1s;
+  z-index: -1;
+  border-radius: 100%;
+  opacity: 0.2;
+}
+
 /* ⬇️⬇️⬇️ NAVBAR ⬇️⬇️⬇️ */
 .cross-button {
   cursor: pointer;
@@ -96,8 +110,10 @@ section.introduction article span {
 section.introduction div.introImgBox {
   padding: 0.5rem;
   max-width: 100%;
+  min-width: fit-content;
   border: 1px solid white;
   border-radius: 18% 18% 100% 100%;
+
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -116,7 +132,7 @@ div.introImgBox:hover:after {
 }
 div.introImgBox img {
   max-width: 100%;
-  /* max-height: 600px; */
+  /* min-width: 100px; */
   height: clamp(300px, 15rem, 650px);
   border: 1px solid white;
   border-radius: 18% 18% 100% 100%;
@@ -167,18 +183,19 @@ section.boxContainer h1.skillHeader {
   border-bottom: 1px solid;
   grid-column: 1/-1;
 }
-section.boxContainer .singleBox {
+section .singleBox {
   display: grid;
   place-content: center;
   text-align: center;
   position: relative;
   overflow: hidden;
   padding: 1rem;
-  background: ⌠rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 5%;
   z-index: 1;
   max-height: 250px;
   height: 250px;
+  /* max-width: clamp(100px, 100%, 200px); */
   max-width: 200px;
   width: 100%;
   transition-duration: 0.5s;
@@ -187,6 +204,8 @@ section.boxContainer .singleBox {
 section.boxContainer .singleBox:hover {
   transform: scale(1.1);
 }
+
+/* "::after" pseudo element used for hover effect */
 section.boxContainer .singleBox::after {
   /* filter: blur(0.1rem); */
   background: var(--brightest-bg-color);
@@ -206,29 +225,44 @@ section.boxContainer .singleBox:hover:after {
 section.boxContainer .singleBox img {
   max-height: 100px;
   /* max-width: 100%; */
-  background: li;
+  
 }
 
 /* ⬇️⬇️⬇️ SKILLS END ⬇️⬇️⬇️ */
 
-/* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
-.colorFulLines {
-  display: inline-block;
-  position: fixed;
-  /* position: fixed ;
-  top: 0%;
-  left:150%; */
-  height: .1px;
-  width: .1px;
-  padding: 1rem;
-  transition-duration: 1s;
-  z-index: -1;
-  border-radius: 100%;opacity: .2;
+/* ⬇️⬇️⬇️ PROJECTS ⬇️⬇️⬇️ */
+.projects {
+  display: flex;
+  place-items: center;
+  overflow-x: scroll;
+  width: 100%;
+  gap: 1rem;
+  padding: 0rem 2rem 2rem 2rem;
+
+}
+section.projectsContainer .skillHeader {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid;
+  width: 50%;
+
+}
+section.projectsContainer .singleProjectBox img{
+  height:250px;
+}
+section.projectsContainer .singleProjectBox {
+  text-align: center;
+  place-content: center;
+  place-items: center;
+  place-self: center;
+  margin:auto;
+  cursor:pointer;
 }
 
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
 
-/******************** 🟣⬆️ SMALL DEVICES ⬆️ 🟣 *************************/
+/******************** 🟣👆 SMALL DEVICES 👆 🟣 *************************/
 /******************** 🟣 MEDIUM DEVICES 🟣 *************************/
 @media only screen and (min-width: 768px) {
   /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */

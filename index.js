@@ -8,8 +8,8 @@ const introductionSection = document.getElementById("introduction");
 const navButtons = navbar.childNodes;
 for (const singleButton of navButtons) {
   singleButton.addEventListener("click", (e) => {
-    console.log(e.target.getBoundingClientRect().y , document.documentElement.scrollHeight)
-    scroll(0,document.documentElement.scrollHeight - e.target.getBoundingClientRect().y);
+    console.log(e.target.getBoundingClientRect().y - document.documentElement.scrollHeight,e.target.getBoundingClientRect().y - window.innerHeight);
+    scroll(0,e.target.getBoundingClientRect().y - document.documentElement.scrollHeight);
   });
 }
 
