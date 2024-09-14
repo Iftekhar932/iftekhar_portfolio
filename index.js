@@ -11,8 +11,11 @@ for (const singleButton of navButtons) {
     const sectionElement = document.getElementById(
       e.target.textContent.toLowerCase()
     );
-    console.log(sectionElement.getBoundingClientRect().y - window.innerHeight)
-    scroll(0, (sectionElement.getBoundingClientRect().y - window.innerHeight) + 300);
+    console.log(sectionElement.getBoundingClientRect().y - window.innerHeight);
+    scroll(
+      0,
+      sectionElement.getBoundingClientRect().y - window.innerHeight + 300
+    );
   });
 }
 
@@ -63,7 +66,17 @@ const randomColors = [
   "green",
   "yellow",
   "orange",
+  "orangeRed",
+  "purple",
+  "fuchsia",
+  "crimSon",
+  "yellow",
+  "lightYellow",
+  "greenYellow",
   "aliceBlue",
+  "goldenRod",
+  "gold",
+  "darkOrange",
   "aquaMarine",
   "aqua",
   "peachPuff",
