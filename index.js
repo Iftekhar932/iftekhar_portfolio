@@ -110,7 +110,7 @@ let bodyBGColors = [
   // "pink",
   "mediumPurple",
   "rebeccaPurple",
-  "plum",
+  // "plum",
   "cadetBlue",
   "slateBlue",
   // "steelBlue",
@@ -127,10 +127,9 @@ introductionSection.style.transitionDuration = "5s";
 setInterval(() => {
   i > bodyBGColors.length ? (i = 0) : i;
   i++;
-
   document.body.style.setProperty("backGround", bodyBGColors[i]);
 
-}, 4000);
+}, 20000);
 
 // generating span tags with necessary attributes (more css available in css file for these span tags with the class name)
 for (let i = 0; i <= randomColors.length; i++) {
