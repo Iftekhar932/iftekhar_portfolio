@@ -1,7 +1,11 @@
 :root {
-  --brightest-bg-color: hsl(39, 100%, 60%);
+  --brightest-bg-color: hsl(260, 57%, 64%);
+  --brighter-bg-color: hsl(260, 57%, 44%);
+  --dark-bg-color: hsl(260, 57%, 14%);
+
+  /* --brightest-bg-color: hsl(39, 100%, 60%);
   --brighter-bg-color: hsl(39, 100%, 40%);
-  --dark-bg-color: hsl(39, 100%, 10%);
+  --dark-bg-color: hsl(39, 100%, 10%); */
 }
 
 * {
@@ -14,9 +18,6 @@ html {
   font-size: 18px;
   scroll-behavior: smooth;
 }
-body{
-  transition-duration: 5s;
-}
 
 /* "colorFulLines" is the style for span tags that are appended in the body element with js */
 .colorFulLines {
@@ -25,7 +26,7 @@ body{
   height: 0.1px;
   width: 0.1px;
   padding: 1rem;
-  transition-duration: 1s;
+  transition-duration: 4s;
   z-index: -1;
   border-radius: 100%;
   opacity: 0.2;
@@ -50,13 +51,13 @@ body{
 .navbar {
   display: flex;
   flex-direction: column-reverse;
-
+  font-weight: bolder;
+  color: var(--brightest-bg-color);
   position: fixed;
   background: rgba(255, 255, 255, 0.7);
   background-size: 400% 400%;
   width: 0%;
   border-radius: 100%;
-  /* transform: translate(200%, -300%) scale(0); */
   transform: translate(300%, 100%) scale(0);
   transition-duration: 0.5s;
   z-index: 2;
@@ -81,21 +82,24 @@ section.introduction {
   flex-direction: column-reverse;
   place-items: center;
   place-content: center;
-  gap: 1.5rem;
-  padding: 5rem 1.5rem;
-  margin: auto;
   color: white;
   font-weight: bolder;
+  margin: auto;
+  gap: 1.5rem;
+  padding: 5rem 1.5rem;
   background: linear-gradient(
     45deg,
-    var(--brightest-bg-color),
     var(--brighter-bg-color),
-    yellow
+    var(--dark-bg-color),
+    var(--dark-bg-color),
+    var(--brighter-bg-color)
   );
+
   background-size: 400% 400%;
   animation-name: colorSwap;
   animation-duration: 7s;
   animation-iteration-count: infinite;
+  /* transition-duration: 5s; */
 }
 section.introduction article {
   max-width: 500px;
@@ -253,18 +257,18 @@ section.projectsContainer {
 }
 .projects::-webkit-scrollbar {
   width: 12px;
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 /* Track */
 .projects::-webkit-scrollbar-track {
   background: var(--brighter-bg-color);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 /* Handle */
 .projects::-webkit-scrollbar-thumb {
   background: var(--brightest-bg-color);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 /* Handle on hover */
 .projects::-webkit-scrollbar-thumb:hover {
@@ -337,9 +341,9 @@ section.projectsContainer .singleProjectBox:last-child {
 
     background: linear-gradient(
       45deg,
+      var(--dark-bg-color),
       var(--brighter-bg-color),
-      var(--brightest-bg-color),
-      var(--brighter-bg-color)
+      var(--dark-bg-color)
     );
     background-size: 400% 400%;
     animation-name: colorSwap;

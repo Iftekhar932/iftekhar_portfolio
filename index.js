@@ -1,9 +1,10 @@
 const navbar = document.getElementById("navbar");
 const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
-const introductionSection = document.getElementById("introduction");
+const introductionSection = document.getElementById("about");
+console.log("🚀 ~ introductionSection:", introductionSection);
 
-// ! NOT DONE WITH THIS eventListener
+// logic for navbar buttons leading to sections
 const navButtons = navbar.childNodes;
 for (const singleButton of navButtons) {
   singleButton.addEventListener("click", (e) => {
@@ -14,7 +15,7 @@ for (const singleButton of navButtons) {
     console.log(sectionElement.getBoundingClientRect().y - window.innerHeight);
     scroll(
       0,
-      sectionElement.getBoundingClientRect().y - window.innerHeight + 300
+      sectionElement.getBoundingClientRect().y - window.innerHeight + 500
     );
   });
 }
@@ -101,32 +102,35 @@ const randomColors = [
   "mintCream",
 ];
 let bodyBGColors = [
-  "blueViolet",
-  "aliceBlue",
-  "beige",
-  "bisque",
-  "skyBlue",
-  "pink",
+  // "blueViolet",
+  // "aliceBlue",
+  // "beige",
+  // "bisque",
+  // "skyBlue",
+  // "pink",
   "mediumPurple",
   "rebeccaPurple",
   "plum",
   "cadetBlue",
   "slateBlue",
-  "steelBlue",
+  // "steelBlue",
   "mediumSlateBlue",
-  "deepSkyBlue",
+  // "deepSkyBlue",
 ];
 // sorting the array elements in random order
 randomColors.sort(() => Math.random() - 0.5);
-bodyBGColors.sort(() => Math.randomI() - 0.5);
+bodyBGColors.sort(() => Math.random() - 0.5);
 
 let i = 0;
+document.body.style.transitionDuration = "5s";
+introductionSection.style.transitionDuration = "5s";
 setInterval(() => {
   i > bodyBGColors.length ? (i = 0) : i;
-  console.log(i);
   i++;
+
   document.body.style.setProperty("backGround", bodyBGColors[i]);
-}, 15000);
+
+}, 4000);
 
 // generating span tags with necessary attributes (more css available in css file for these span tags with the class name)
 for (let i = 0; i <= randomColors.length; i++) {
