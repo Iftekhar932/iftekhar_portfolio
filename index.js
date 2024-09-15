@@ -124,12 +124,12 @@ bodyBGColors.sort(() => Math.random() - 0.5);
 let i = 0;
 document.body.style.transitionDuration = "5s";
 introductionSection.style.transitionDuration = "5s";
-setInterval(() => {
+/* setInterval(() => {
   i > bodyBGColors.length ? (i = 0) : i;
   i++;
   document.body.style.setProperty("backGround", bodyBGColors[i]);
 
-}, 20000);
+}, 20000); */
 
 // generating span tags with necessary attributes (more css available in css file for these span tags with the class name)
 for (let i = 0; i <= randomColors.length; i++) {
