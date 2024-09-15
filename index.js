@@ -59,9 +59,10 @@ const navBarObserver = new IntersectionObserver(
 );
 navBarObserver.observe(navbar);
 
-/******  projects section background animation ******/
+//🟪 BODY TAG RELATED ANIMATIONS START🟪
 // colors name array
 const randomColors = [
+  "blueViolet",
   "red",
   "green",
   "yellow",
@@ -99,9 +100,33 @@ const randomColors = [
   "magenta",
   "mintCream",
 ];
-
+let bodyBGColors = [
+  "blueViolet",
+  "aliceBlue",
+  "beige",
+  "bisque",
+  "skyBlue",
+  "pink",
+  "mediumPurple",
+  "rebeccaPurple",
+  "plum",
+  "cadetBlue",
+  "slateBlue",
+  "steelBlue",
+  "mediumSlateBlue",
+  "deepSkyBlue",
+];
 // sorting the array elements in random order
 randomColors.sort(() => Math.random() - 0.5);
+bodyBGColors.sort(() => Math.randomI() - 0.5);
+
+let i = 0;
+setInterval(() => {
+  i > bodyBGColors.length ? (i = 0) : i;
+  console.log(i);
+  i++;
+  document.body.style.setProperty("backGround", bodyBGColors[i]);
+}, 15000);
 
 // generating span tags with necessary attributes (more css available in css file for these span tags with the class name)
 for (let i = 0; i <= randomColors.length; i++) {
@@ -124,7 +149,6 @@ for (let i = 0; i <= randomColors.length; i++) {
     span.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`;
   }, 1200);
 }
-
 // colorful span tags positioning along with scroll
 const colorSpans = [...document.querySelectorAll("#colorSpans")];
 // making sure array is not empty
@@ -148,3 +172,4 @@ if (colorSpans[0]) {
     }
   });
 }
+//🟪 BODY TAG RELATED ANIMATIONS START END 🟪

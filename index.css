@@ -14,6 +14,9 @@ html {
   font-size: 18px;
   scroll-behavior: smooth;
 }
+body{
+  transition-duration: 5s;
+}
 
 /* "colorFulLines" is the style for span tags that are appended in the body element with js */
 .colorFulLines {
@@ -64,7 +67,7 @@ html {
   /* width: 100%; */
 }
 .navbar span:hover {
-  color:white;
+  color: white;
 }
 .displayNav {
   width: 100%;
@@ -244,32 +247,29 @@ section.projectsContainer {
   scroll-snap-type: x mandatory;
   /* !not sure if this one below working or not */
   -webkit-overflow-scrolling: touch;
-  /* width: 50%; */
-  /* max-width: 100%; */
-  outline: thick outset  var(--brighter-bg-color);
+  outline: thick inset var(--brighter-bg-color);
   outline-offset: 15px;
   scroll-behavior: smooth;
 }
-
 .projects::-webkit-scrollbar {
-  width: 10px;
+  width: 12px;
+  background-color: #F5F5F5;
 }
-
 /* Track */
 .projects::-webkit-scrollbar-track {
   background: var(--brighter-bg-color);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
 }
-
 /* Handle */
 .projects::-webkit-scrollbar-thumb {
   background: var(--brightest-bg-color);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 }
-
 /* Handle on hover */
 .projects::-webkit-scrollbar-thumb:hover {
   background: var(--dark-bg-color);
 }
-
 section.projectsContainer .skillHeader {
   text-align: center;
   margin: auto;
@@ -282,7 +282,7 @@ section.projectsContainer .singleProjectBox img {
 }
 section.projectsContainer .singleProjectBox {
   text-align: center;
-/*   place-content: center;
+  /*   place-content: center;
   place-items: center;
   place-self: center; */
   margin: auto;
@@ -291,11 +291,17 @@ section.projectsContainer .singleProjectBox {
   outline: 1px solid var(--brightest-bg-color);
   outline-style: groove;
   outline-width: thick;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.4rem;
   margin: 0.5rem 0 0.5rem 0;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
-.singleProjectBox:hover{
+section.projectsContainer .singleProjectBox:first-child {
+  margin-left: 1rem;
+}
+section.projectsContainer .singleProjectBox:last-child {
+  margin-right: 0.5rem;
+}
+.singleProjectBox:hover {
   transform: scale(1.01);
 }
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
@@ -358,10 +364,9 @@ section.projectsContainer .singleProjectBox {
   }
 
   /* ⬇️⬇️⬇️ PROJECTS  ⬇️⬇️⬇️ */
-  .projects{
-      width: 50%;
-  max-width: 100%;
+  .projects {
+    width: 50%;
+    max-width: 100%;
   }
-  
 }
 /******************** 🟣 LARGE DEVICES 🟣 END ***************************/
