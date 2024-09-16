@@ -18,8 +18,8 @@ html {
   font-size: 18px;
   scroll-behavior: smooth;
 }
-body {
-  /* background: linear-gradient(
+/* body {
+  background: linear-gradient(
     60deg,
     var(--brighter-bg-color),
     var(--dark-bg-color),
@@ -27,8 +27,8 @@ body {
   );
   background-size: 400% 400%;
   animation: colorSwap;
-  animation-duration: 7s; */
-}
+  animation-duration: 7s;
+} */
 
 /* "colorFulLines" is the style for span tags that are appended in the body element with js */
 .colorFulLines {
