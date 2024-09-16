@@ -20,12 +20,14 @@ html {
 }
 body {
   /* background: linear-gradient(
-    45deg,
+    60deg,
     var(--brighter-bg-color),
     var(--dark-bg-color),
     var(--brighter-bg-color)
   );
-  transition-duration: 5s; */
+  background-size: 400% 400%;
+  animation: colorSwap;
+  animation-duration: 7s; */
 }
 
 /* "colorFulLines" is the style for span tags that are appended in the body element with js */
@@ -220,7 +222,7 @@ section .singleBox {
 
 section.boxContainer .singleBox:hover {
   color: var(--brightest-bg-color);
-  transform: scale(1.1);
+  transform: scale(1.03);
 }
 
 /* "::after" pseudo element used for hover effect */
