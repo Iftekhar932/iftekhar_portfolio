@@ -2,22 +2,28 @@ const navbar = document.getElementById("navbar");
 const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
 const introductionSection = document.getElementById("about");
-console.log("🚀 ~ introductionSection:", introductionSection);
+const allSections = document.querySelectorAll("section");
 
 // logic for navbar buttons leading to sections
 const navButtons = navbar.childNodes;
 for (const singleButton of navButtons) {
   singleButton.addEventListener("click", (e) => {
-    console.log(e.target.textContent.toLowerCase());
-    const sectionElement = document.getElementById(
+    console.log(e.target.getBoundingClientRect().y);
+    const sectionById = document.getElementById(
       e.target.textContent.toLowerCase()
     );
-    console.log(sectionElement.getBoundingClientRect().y - window.innerHeight);
-    scroll(
-      0,
-      sectionElement.getBoundingClientRect().y - window.innerHeight + 500
-    );
+    scroll(0, sectionById.getBoundingClientRect().y - window.innerHeight + 500);
   });
+
+  /* singleButton.addEventListener("scroll", (e) => {
+    console.log(window.scrollY, e.getBoundingClientRect().y); 
+    if (window.scrollY >= e.getBoundingClientRect().y) {
+      
+      singleButton.style.color = "white";
+    } else {
+      singleButton.style.color = "inherit";
+    }
+  }); */
 }
 
 // smaller screen navbar toggle button logic
@@ -59,6 +65,44 @@ const navBarObserver = new IntersectionObserver(
   { threshold: 1 }
 );
 navBarObserver.observe(navbar);
+
+const scrollSpyObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      // console.log(entry,entry.boundingClientRect.y,entry.isIntersecting);
+      if (entry.isIntersecting) {
+        document.querySelectorAll("#navbar span").forEach((e) => {
+          if(e.textContent.toLowerCase().includes(entry.target.id)){
+            e.style.color="white"
+          }else{
+            e.style.color="inherit"
+
+          }
+        });
+      } else {
+        entry.target.style.color = "inherit";
+      }
+    });
+  },
+  { threshold: 0 }
+);
+
+scrollSpyObserver.observe(allSections[0]);
+scrollSpyObserver.observe(allSections[1]);
+scrollSpyObserver.observe(allSections[2]);
+// console.log(document.querySelectorAll("section"))
+/* 
+window.addEventListener("scroll", () => {
+  console.log(allSections[0].scrollHeight, window.scrollY);
+  if (window.scrollY >= allSections[0].scrollHeight) {
+    document.querySelectorAll("nav span")[0].style.color="white"
+  }else{
+    document.querySelectorAll("nav span")[0].style.color="inherit"
+  }
+  allSections.forEach((element) => {
+    // console.log(element.getBoundingClientRect().y)
+  });
+}); */
 
 //🟪 BODY TAG RELATED ANIMATIONS START🟪
 // colors name array
@@ -128,6 +172,7 @@ setInterval(() => {
   i > bodyBGColors.length ? (i = 0) : i;
   i++;
   document.body.style.setProperty("backGround", bodyBGColors[i]);
+  console.log(i);
 }, 20000);
 
 // generating span tags with necessary attributes (more css available in css file for these span tags with the class name)
