@@ -80,6 +80,7 @@ html {
 }
 .navbar span:hover {
   color: white;
+  cursor: pointer;
 }
 .displayNav {
   width: 100%;

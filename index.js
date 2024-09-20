@@ -12,18 +12,8 @@ for (const singleButton of navButtons) {
     const sectionById = document.getElementById(
       e.target.textContent.toLowerCase()
     );
-    scroll(0, sectionById.getBoundingClientRect().y - window.innerHeight + 500);
+    scroll(0, sectionById.getBoundingClientRect().y - window.innerHeight + 600);
   });
-
-  /* singleButton.addEventListener("scroll", (e) => {
-    console.log(window.scrollY, e.getBoundingClientRect().y); 
-    if (window.scrollY >= e.getBoundingClientRect().y) {
-      
-      singleButton.style.color = "white";
-    } else {
-      singleButton.style.color = "inherit";
-    }
-  }); */
 }
 
 // smaller screen navbar toggle button logic
@@ -48,7 +38,7 @@ const navBarObserver = new IntersectionObserver(
     elements.forEach((element) => {
       // when navbar is on top of the whole page it'll have transparent background
       if (window.scrollY == 0) {
-        navbar.classList.add("navScrollEffect");
+        // navbar.classList.add("navScrollEffect");
       }
       window.addEventListener("scroll", () => {
         if (
@@ -62,7 +52,7 @@ const navBarObserver = new IntersectionObserver(
       });
     });
   },
-  { threshold: 1 }
+  { threshold: 0 }
 );
 navBarObserver.observe(navbar);
 
@@ -72,11 +62,11 @@ const scrollSpyObserver = new IntersectionObserver(
       // console.log(entry,entry.boundingClientRect.y,entry.isIntersecting);
       if (entry.isIntersecting) {
         document.querySelectorAll("#navbar span").forEach((e) => {
-          if(e.textContent.toLowerCase().includes(entry.target.id)){
-            e.style.color="white"
-          }else{
-            e.style.color="inherit"
-
+          if (e.textContent.toLowerCase().includes(entry.target.id)) {
+            console.log(entry.target.id);
+            e.style.color = "white";
+          } else {
+            e.style.color = "inherit";
           }
         });
       } else {
@@ -84,7 +74,7 @@ const scrollSpyObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0 }
+  { threshold: 0.5 }
 );
 
 scrollSpyObserver.observe(allSections[0]);
@@ -172,7 +162,6 @@ setInterval(() => {
   i > bodyBGColors.length ? (i = 0) : i;
   i++;
   document.body.style.setProperty("backGround", bodyBGColors[i]);
-  console.log(i);
 }, 20000);
 
 // generating span tags with necessary attributes (more css available in css file for these span tags with the class name)
