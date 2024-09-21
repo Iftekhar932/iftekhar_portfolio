@@ -3,6 +3,7 @@ const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
 const introductionSection = document.getElementById("about");
 const allSections = document.querySelectorAll("section");
+const form = document.getElementById("contact-form");
 
 // logic for navbar buttons leading to sections
 const navButtons = navbar.childNodes;
@@ -209,3 +210,46 @@ if (colorSpans[0]) {
   });
 }
 //🟪 BODY TAG RELATED ANIMATIONS START END 🟪
+
+/* EMAIL JS */
+
+/* 
+**5. Replace Placeholders:**
+
+- Replace `YOUR_PUBLIC_KEY`, `YOUR_SERVICE_ID`, and `YOUR_TEMPLATE_ID` with your actual values from your EmailJS account.
+
+**Additional Notes:**
+
+- You can customize the form fields and styling to match your website's design.
+- For a more user-friendly experience, consider adding validation to ensure users enter valid information.
+- You can display a success or error message to the user after the email is sent or fails to send.
+
+By following these steps, you'll successfully integrate EmailJS into your HTML, CSS, and JavaScript project and enable users to contact you through a contact form.
+*/
+
+const serviceID = "YOUR_SERVICE_ID"; // Replace with your service ID
+const templateID = "YOUR_TEMPLATE_ID"; // Replace with your template ID
+emailjs
+  .sendForm(serviceID, templateID, form)
+  .then((response) => {
+    console.log("Email sent successfully:", response.status);
+    // Show a success message to the user
+  })
+  .catch((error) => {
+    console.error("Failed to send email:", error);
+    // Show an error message to the user
+  });
+
+// contact section form validation
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const name = form.elements.name.value;
+  const email = form.elements.email.value;
+  const message = form.elements.message.value;
+
+  if (name && email && message) {
+    // Form is valid, do something here (e.g. send form data to a server)
+  } else {
+    // Form is invalid, display an error message
+  }
+});
