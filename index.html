@@ -292,11 +292,49 @@
 
     <!-- 🟪🟪🟪🟪🟪🟪🟪 CONTACT FORM  🟪🟪🟪🟪🟪🟪🟪 -->
     <section>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>  
+      <form id="form">
+        <!--  <div class="field">
+          <label for="to_name">Your Name</label>
+          <input
+            type="text"
+            name="to_name"
+            placeholder="Your Name"
+            id="to_name"
+            required
+          />
+        </div> -->
+        <div class="field">
+          <label for="from_name">Your Name</label>
+          <input
+            type="text"
+            name="from_name"
+            placeholder="Your Name"
+            id="from_name"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="message">message</label>
+          <input
+            type="text"
+            name="message"
+            id="message"
+            placeholder="Write Message"
+            required
+          />
+        </div>
+        <div class="field">
+          <label for="reply_to">Your Email</label>
+          <input
+            type="text"
+            name="reply_to"
+            id="reply_to"
+            placeholder="Your Email"
+            required
+          />
+        </div>
+
+        <input type="submit" id="button" class="submitBtn" value="Send Email" />
       </form>
     </section>
     <!-- 🟪🟪🟪🟪🟪🟪🟪 CONTACT FORM END 🟪🟪🟪🟪🟪🟪🟪 -->

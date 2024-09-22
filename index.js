@@ -3,7 +3,7 @@ const skillsSection = document.getElementById("skills");
 const projectSection = document.getElementById("projects");
 const introductionSection = document.getElementById("about");
 const allSections = document.querySelectorAll("section");
-const form = document.getElementById("contact-form");
+const form = document.getElementById("form");
 
 // logic for navbar buttons leading to sections
 const navButtons = navbar.childNodes;
@@ -217,29 +217,37 @@ const serviceID = "service_p2fklhj"; // Replace with your service ID
 const templateID = "template_hmpcgi4"; // Replace with your template ID
 
 function sendEmailFunc() {
-  emailjs
-    .sendForm(serviceID, templateID, form)
-    .then((response) => {
-      console.log(response);
-      console.log("Email sent successfully:", response.status);
-      // Show a success message to the user
-    })
-    .catch((error) => {
-      console.error("Failed to send email:", error);
-      // Show an error message to the user
-    });
+  const btn = document.getElementById("button");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    btn.value = "Sending...";
+    console.log(this);
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Send Email";
+        alert("Sent!");
+      },
+      (err) => {
+        btn.value = "Send Email";
+        alert(JSON.stringify(err));
+      }
+    );
+  });
 }
 
 // contact section form validation
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(form.elements);
-  const name = form.elements.name.value;
-  const email = form.elements.email.value;
+  const to_name = "Iftekhar";
+  const from_name = form.elements.from_name.value;
+  const email = form.elements.reply_to.value;
   const message = form.elements.message.value;
 
-  if (name && email && message) {
+  if (to_name && from_name && message && email) {
     // Form is valid, do something here (e.g. send form data to a server)
+
     sendEmailFunc();
   } else {
     // Form is invalid, display an error message
