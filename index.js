@@ -9,7 +9,7 @@ const form = document.getElementById("contact-form");
 const navButtons = navbar.childNodes;
 for (const singleButton of navButtons) {
   singleButton.addEventListener("click", (e) => {
-    console.log(e.target.getBoundingClientRect().y);
+    // console.log(e.target.getBoundingClientRect().y);
     const sectionById = document.getElementById(
       e.target.textContent.toLowerCase()
     );
@@ -64,7 +64,7 @@ const scrollSpyObserver = new IntersectionObserver(
       if (entry.isIntersecting) {
         document.querySelectorAll("#navbar span").forEach((e) => {
           if (e.textContent.toLowerCase().includes(entry.target.id)) {
-            console.log(entry.target.id);
+            // console.log(entry.target.id);
             e.style.color = "white";
           } else {
             e.style.color = "inherit";
@@ -81,19 +81,6 @@ const scrollSpyObserver = new IntersectionObserver(
 scrollSpyObserver.observe(allSections[0]);
 scrollSpyObserver.observe(allSections[1]);
 scrollSpyObserver.observe(allSections[2]);
-// console.log(document.querySelectorAll("section"))
-/* 
-window.addEventListener("scroll", () => {
-  console.log(allSections[0].scrollHeight, window.scrollY);
-  if (window.scrollY >= allSections[0].scrollHeight) {
-    document.querySelectorAll("nav span")[0].style.color="white"
-  }else{
-    document.querySelectorAll("nav span")[0].style.color="inherit"
-  }
-  allSections.forEach((element) => {
-    // console.log(element.getBoundingClientRect().y)
-  });
-}); */
 
 //🟪 BODY TAG RELATED ANIMATIONS START🟪
 // colors name array
@@ -211,8 +198,7 @@ if (colorSpans[0]) {
 }
 //🟪 BODY TAG RELATED ANIMATIONS START END 🟪
 
-/* EMAIL JS */
-
+/* 🔴INCOMPLETE EMAIL JS  🔴INCOMPLETE*/
 /* 
 **5. Replace Placeholders:**
 
@@ -227,29 +213,36 @@ if (colorSpans[0]) {
 By following these steps, you'll successfully integrate EmailJS into your HTML, CSS, and JavaScript project and enable users to contact you through a contact form.
 */
 
-const serviceID = "YOUR_SERVICE_ID"; // Replace with your service ID
-const templateID = "YOUR_TEMPLATE_ID"; // Replace with your template ID
-emailjs
-  .sendForm(serviceID, templateID, form)
-  .then((response) => {
-    console.log("Email sent successfully:", response.status);
-    // Show a success message to the user
-  })
-  .catch((error) => {
-    console.error("Failed to send email:", error);
-    // Show an error message to the user
-  });
+const serviceID = "service_p2fklhj"; // Replace with your service ID
+const templateID = "template_hmpcgi4"; // Replace with your template ID
+
+function sendEmailFunc() {
+  emailjs
+    .sendForm(serviceID, templateID, form)
+    .then((response) => {
+      console.log(response);
+      console.log("Email sent successfully:", response.status);
+      // Show a success message to the user
+    })
+    .catch((error) => {
+      console.error("Failed to send email:", error);
+      // Show an error message to the user
+    });
+}
 
 // contact section form validation
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  console.log(form.elements);
   const name = form.elements.name.value;
   const email = form.elements.email.value;
   const message = form.elements.message.value;
 
   if (name && email && message) {
     // Form is valid, do something here (e.g. send form data to a server)
+    sendEmailFunc();
   } else {
     // Form is invalid, display an error message
+    console.log("BAD REQ 244");
   }
 });
