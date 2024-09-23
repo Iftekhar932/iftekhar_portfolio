@@ -33,11 +33,12 @@ navCrossButton.addEventListener("click", (e) => {
     : navbar.classList.add("displayNav");
 });
 
-// navBar background color change with scroll
+// functionality for navBar background color change with scroll 🟪
 const navBarObserver = new IntersectionObserver(
   (elements) => {
     elements.forEach((element) => {
       // when navbar is on top of the whole page it'll have transparent background
+
       if (window.scrollY == 0) {
         // navbar.classList.add("navScrollEffect");
       }
@@ -57,17 +58,29 @@ const navBarObserver = new IntersectionObserver(
 );
 navBarObserver.observe(navbar);
 
+//! scrollspy problem
+// navbar scrollspy functionality
 const scrollSpyObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       // console.log(entry,entry.boundingClientRect.y,entry.isIntersecting);
       if (entry.isIntersecting) {
         document.querySelectorAll("#navbar span").forEach((e) => {
+          console.log(entry.target.id, e.textContent);
           if (e.textContent.toLowerCase().includes(entry.target.id)) {
-            // console.log(entry.target.id);
+            // if (entry.target.id == ) {
             e.style.color = "white";
           } else {
             e.style.color = "inherit";
+          }
+
+          // skill display box animation on scroll, the ones that contain "singleBox" - class name
+          if (entry.target.id.toLowerCase() == "skills") {
+            for (const ele of entry.target.children) {
+              ele.getAttribute("class").includes("singleBox")
+                ? (ele.style.transform = "scale(1)")
+                : null;
+            }
           }
         });
       } else {
@@ -77,7 +90,6 @@ const scrollSpyObserver = new IntersectionObserver(
   },
   { threshold: 0.5 }
 );
-
 scrollSpyObserver.observe(allSections[0]);
 scrollSpyObserver.observe(allSections[1]);
 scrollSpyObserver.observe(allSections[2]);

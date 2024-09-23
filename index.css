@@ -208,9 +208,9 @@ section .singleBox {
   z-index: 1;
   max-height: 250px;
   height: 250px;
-  /* max-width: clamp(100px, 100%, 200px); */
   max-width: 200px;
   width: 100%;
+  transform: scale(0);
   transition-duration: 0.5s;
 }
 /* need brightness, because hover effect makes the image blend in */
