@@ -82,7 +82,7 @@ body {
 }
 
 /* ⬇️⬇️⬇️ INTRODUCTION ⬇️⬇️⬇️ */
-section.introduction {
+header.introduction {
   display: flex;
   flex-direction: column-reverse;
   place-items: center;
@@ -105,11 +105,11 @@ section.introduction {
   animation-iteration-count: infinite;
   /* transition-duration: 5s; */
 }
-section.introduction article {
+header.introduction article {
   max-width: 500px;
 }
 
-section.introduction article span {
+header.introduction article span {
   display: inline-block;
   animation: typing 2s steps(12) infinite,
     blink 0.4s step-end infinite alternate;
@@ -120,7 +120,7 @@ section.introduction article span {
   /* max-width: clamp(100px, 16.5rem, 300px); */
   max-width: clamp(100px, 100%, 250px);
 }
-section.introduction div.introImgBox {
+header.introduction div.introImgBox {
   padding: 0.5rem;
   max-width: 100%;
   min-width: fit-content;
@@ -213,6 +213,7 @@ section .singleBox {
   transform: scale(0);
   transition-duration: 0.5s;
 }
+
 /* need brightness, because hover effect makes the image blend in */
 section.boxContainer .singleBox:nth-child(8):hover .skillImgBox img {
   filter: brightness(7.5);
@@ -316,12 +317,38 @@ section.projectsContainer .singleProjectBox:last-child {
 .singleProjectBox:hover {
   transform: scale(1.01);
 }
+
+section.projectsContainer .skillsUsed {
+  margin: 3rem auto auto auto;
+  width: clamp(360px, 90%, 700px);
+}
+section.projectsContainer .skillsUsed span {
+  display: inline-block;
+  border-radius: 100%;
+  margin: 0.5rem 0 0 0.5rem;
+  opacity: 0.7;
+}
+section.projectsContainer .skillsUsed span:hover {
+  box-shadow: 0px 0px 5px 5px rgba(255, 255, 235, 0.948);
+  opacity: 1;
+  filter: brightness(1.5);
+}
+section.projectsContainer .skillsUsed span .skillImgBox {
+  height: 50px;
+  width: 50px;
+}
+section.projectsContainer .skillsUsed span .skillImgBox img {
+  max-width: 100%;
+}
+
 /* ⬇️⬇️⬇️ PROJECTS END ⬇️⬇️⬇️ */
 
 /* ⬇️⬇️⬇️ CONTACT SECTION ⬇️⬇️⬇️ */
 .contactContainer {
   padding: 50px 0;
   text-align: center;
+  width: clamp(360px, 90%, 700px);
+  margin: auto;
 }
 
 .contactContainer p {
@@ -332,7 +359,7 @@ section.projectsContainer .singleProjectBox:last-child {
 .contactContainer a {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: var(--brighter-bg-color);
   color: #fff;
   text-decoration: none;
   font-size: 16px;
@@ -340,11 +367,11 @@ section.projectsContainer .singleProjectBox:last-child {
 }
 
 .contactContainer a:hover {
-  background-color: #444;
+  background-color: var(--dark-bg-color);
 }
-
+/* 
 #contact-form {
-  width: 500px;
+  width: clamp(360px, 90%, 500px);
   margin: 0 auto;
 }
 
@@ -359,18 +386,30 @@ section.projectsContainer .singleProjectBox:last-child {
   padding: 10px;
   border: 1px solid #ccc;
   box-sizing: border-box;
-}
+} */
 
 /* ⬇️⬇️⬇️ CONTACT SECTION END ⬇️⬇️⬇️ */
 /* ⬇️⬇️⬇️ CONTACT FORM ⬇️⬇️⬇️ */
-.field {
-  margin-bottom: 10px;
+.contact-form form {
+  width: clamp(360px, 90%, 700px);
+  margin: auto;
+}
+.contact-form fieldset legend {
+  text-align: center;
+}
+.contact-form fieldset {
+  border-color: white;
 }
 
+.field {
+  margin: auto auto 0.5rem auto;
+  text-align: center;
+}
 .field label {
-  display: block;
+  /* display: block; */
+  font-weight: bolder;
   font-size: 12px;
-  color: #777;
+  margin: auto auto 0.5rem auto;
 }
 
 .field input {
@@ -378,23 +417,29 @@ section.projectsContainer .singleProjectBox:last-child {
   min-width: 250px;
   line-height: 1.5;
   font-size: 14px;
+  margin: auto auto 10px auto;
 }
 
 input.submitBtn {
   display: block;
+  background-color: var(--brighter-bg-color);
+  border: none;
+  color: #fff;
+  margin: auto auto 10px auto;
   padding: 6px 30px;
   font-size: 14px;
-  background-color: #4460aa;
-  color: #fff;
-  border: none;
 }
+input.submitBtn:hover {
+  background-color: var(--dark-bg-color);
+}
+
 /* ⬇️⬇️⬇️ CONTACT FORM  END ⬇️⬇️⬇️ */
 
 /******************** 🟣👆 SMALL DEVICES 👆 🟣 *************************/
 /******************** 🟣 MEDIUM DEVICES 🟣 *************************/
 @media only screen and (min-width: 768px) {
   /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
-  section.introduction {
+  header.introduction {
     font-size: 1.2rem;
     flex-direction: row;
   }
@@ -434,12 +479,12 @@ input.submitBtn {
     background: transparent;
   }
   /* ⬇️⬇️⬇️ INTRODUCTION  ⬇️⬇️⬇️ */
-  section.introduction {
+  header.introduction {
     font-size: 1.5rem;
     flex-direction: initial;
   }
 
-  section.introduction article span {
+  header.introduction article span {
     max-width: clamp(100px, 16.5rem, 300px);
   }
   /* ⬇️⬇️⬇️ SKILLS  ⬇️⬇️⬇️ */

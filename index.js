@@ -54,11 +54,11 @@ const navBarObserver = new IntersectionObserver(
       });
     });
   },
-  { threshold: 0 }
+  { threshold: 1 }
 );
 navBarObserver.observe(navbar);
 
-//! scrollspy problem
+//! scrollspy problem - timing not perfect, e.textContent has delay but entry.target.id doesn't
 // navbar scrollspy functionality
 const scrollSpyObserver = new IntersectionObserver(
   (entries) => {
@@ -66,9 +66,8 @@ const scrollSpyObserver = new IntersectionObserver(
       // console.log(entry,entry.boundingClientRect.y,entry.isIntersecting);
       if (entry.isIntersecting) {
         document.querySelectorAll("#navbar span").forEach((e) => {
-          console.log(entry.target.id, e.textContent);
-          if (e.textContent.toLowerCase().includes(entry.target.id)) {
-            // if (entry.target.id == ) {
+          console.log(entry.target.id);
+          if (e.textContent.toLowerCase() == entry.target.id.toLowerCase()) {
             e.style.color = "white";
           } else {
             e.style.color = "inherit";
@@ -88,7 +87,7 @@ const scrollSpyObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.5 }
+  { threshold: 0.2 }
 );
 scrollSpyObserver.observe(allSections[0]);
 scrollSpyObserver.observe(allSections[1]);
