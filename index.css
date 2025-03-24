@@ -321,6 +321,7 @@ section.projectsContainer .singleProjectBox:last-child {
 section.projectsContainer .skillsUsed {
   margin: 3rem auto auto auto;
   width: clamp(360px, 90%, 700px);
+  background: rgba(255, 255, 235, 0.2);
 }
 section.projectsContainer .skillsUsed span {
   display: inline-block;
@@ -418,6 +419,7 @@ section.projectsContainer .skillsUsed span .skillImgBox img {
   line-height: 1.5;
   font-size: 14px;
   margin: auto auto 10px auto;
+  padding: 0.5rem;
 }
 
 input.submitBtn {
