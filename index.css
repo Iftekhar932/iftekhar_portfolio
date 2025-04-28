@@ -1,3 +1,4 @@
+@import "tailwindcss";
 :root {
   --brightest-bg-color: hsl(260, 57%, 64%);
   --brighter-bg-color: hsl(260, 57%, 44%);
@@ -439,7 +440,6 @@ input.submitBtn:hover {
 
 /* ⬇️⬇️⬇️ FOOTER START ⬇️⬇️⬇️ */
 .footer {
-  /* background-color: rgb(31, 40, 51); */
   background: rgba(31, 40, 51, 0.7);
 
   color: #c5c6c7;
